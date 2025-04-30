@@ -1,4 +1,4 @@
-import axios from "../config/axios";
+import axios from "@/config/axios";
 
 async function getAllProducts(skip, limit) {
   const resp = await axios.get("products", {
