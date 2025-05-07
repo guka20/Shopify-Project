@@ -1,3 +1,16 @@
+:root {
+  --light-black: #6b7274;
+}
+
+/* R - 255 */
+/* G - 255 */
+/* B - 255 */
+/* 255 * 255 * 255 */
+/* rgb(255,255,255) */
+/* FFFFFF */
+/* ABCDEF */
+/* abcdef */
+
 .nav-bar {
   width: 100%;
   background-color: white;
@@ -16,6 +29,11 @@
   font-size: 2.5rem;
   font-weight: bold;
 }
+.nav-bar .nav-container .logo a {
+  text-decoration: none;
+  color: black;
+}
+
 .nav-bar .nav-container .search-bar {
   height: min-content;
   position: relative;
@@ -46,5 +64,35 @@
 
 .nav-bar .nav-container .nav-right-side {
   display: flex;
+  align-items: center;
   gap: 20px;
+}
+.nav-bar .nav-container .nav-right-side .link {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: black;
+}
+.nav-bar .nav-container .nav-right-side .login-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.nav-bar .nav-container .nav-right-side .login-btn .text {
+  margin-left: 10px;
+}
+
+.nav-bar .nav-container .nav-right-side .right-side-icon {
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.light-black {
+  /* variable */
+  color: var(--light-black);
 }

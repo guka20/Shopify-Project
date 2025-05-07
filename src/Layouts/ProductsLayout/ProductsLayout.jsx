@@ -3,7 +3,7 @@ import "./ProductsLayout.css";
 const ProductsLayout = ({ title, children }) => {
   return (
     <div className="products-layout">
-      <h1>{title}</h1>
+      {title}
       <div className="products-container">{children}</div>
     </div>
   );

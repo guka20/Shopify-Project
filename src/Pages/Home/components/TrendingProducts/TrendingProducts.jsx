@@ -15,7 +15,7 @@ const TrendingProducts = () => {
       ) : products === undefined ? (
         <h1>Loading...</h1>
       ) : (
-        <ProductsLayout title="Trending Products">
+        <ProductsLayout title={<h1>Trending Products</h1>}>
           {products.map((el) => (
             <CartItem
               key={el.id}

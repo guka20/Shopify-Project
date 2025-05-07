@@ -15,7 +15,7 @@
   transition: transform 0.1s linear;
 }
 .cart-item .image-place img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .cart-item .textures {
   width: 90%;

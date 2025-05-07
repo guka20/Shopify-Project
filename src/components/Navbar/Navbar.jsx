@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FiMoon } from "react-icons/fi";
-import { HiOutlineShoppingCart } from "react-icons/hi2";
+import { IoCartOutline } from "react-icons/io5";
 
 import "./Navbar.css";
 
@@ -11,7 +11,9 @@ const Navbar = () => {
   return (
     <nav className="nav-bar">
       <div className="nav-container">
-        <div className="logo">Shopify</div>
+        <div className="logo">
+          <Link to="/">Shopify</Link>
+        </div>
         <div className="search-bar">
           <input type="text" placeholder="Search for a product..." />
           <button className="search-btn">
@@ -20,19 +22,23 @@ const Navbar = () => {
         </div>
         <div className="nav-right-side">
           <div>
-            <Link to="/products">Products</Link>
+            <Link to="/products" className="link">
+              Products
+            </Link>
           </div>
           <div>
-            <Link to="/categories">Categories</Link>
+            <Link to="/categories" className="link">
+              Categories
+            </Link>
           </div>
-          <button className="login-btn">
+          <button className="login-btn light-black">
             <FaUser />
-            Login
+            <span className="text">Login</span>
           </button>
-          <button>
-            <HiOutlineShoppingCart />
+          <button className="right-side-icon light-black">
+            <IoCartOutline />
           </button>
-          <button>
+          <button className="right-side-icon">
             <FiMoon />
           </button>
         </div>

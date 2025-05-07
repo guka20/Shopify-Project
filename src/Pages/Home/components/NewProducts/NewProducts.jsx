@@ -15,7 +15,7 @@ const NewProducts = () => {
       ) : newProducts === undefined ? (
         <h1>Loading...</h1>
       ) : (
-        <ProductsLayout title="New Arrivals">
+        <ProductsLayout title={<h1>New Arrivals</h1>}>
           {newProducts.map((el) => (
             <CartItem
               key={el.id}
