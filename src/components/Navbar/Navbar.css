@@ -17,6 +17,9 @@
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
   padding: 10px 0;
 }
+.nav-bar.dark {
+  background-color: rgb(30, 41, 59);
+}
 .nav-bar .nav-container {
   margin: 0 auto;
   display: flex;
@@ -33,7 +36,9 @@
   text-decoration: none;
   color: black;
 }
-
+.nav-bar.dark .nav-container .logo a {
+  color: white;
+}
 .nav-bar .nav-container .search-bar {
   height: min-content;
   position: relative;
@@ -41,15 +46,19 @@
 .nav-bar .nav-container .search-bar input::placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
+.nav-bar.dark .nav-container .search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.514);
+}
 .nav-bar .nav-container .search-bar input {
   width: 400px;
   height: 35px;
   font-size: 1rem;
   padding: 2px 15px;
   border: 2px solid #3b82f6;
+  background-color: transparent;
 }
+
 .nav-bar .nav-container .search-bar .search-btn {
-  border: 2px solid black;
   width: 43px;
   position: absolute;
   top: 0;
@@ -72,6 +81,9 @@
   text-decoration: none;
   color: black;
 }
+.nav-bar.dark .nav-container .nav-right-side .link {
+  color: white;
+}
 .nav-bar .nav-container .nav-right-side .login-btn {
   border: none;
   background-color: transparent;
@@ -92,7 +104,14 @@
   cursor: pointer;
 }
 
-.light-black {
+.nav-bar .light-black {
   /* variable */
   color: var(--light-black);
+}
+.nav-bar.dark .light-black {
+  color: white;
+}
+
+.nav-bar.dark .theme-btn {
+  color: white;
 }

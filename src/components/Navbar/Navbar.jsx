@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FiMoon } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
+import { IoSunnyOutline } from "react-icons/io5";
 
 import "./Navbar.css";
+import { ThemeContext } from "@/contexts/ThemeContext";
 
 const Navbar = () => {
+  const { isDark, setIsDark } = useContext(ThemeContext);
   return (
-    <nav className="nav-bar">
+    <nav className={isDark ? "nav-bar dark" : "nav-bar"}>
       <div className="nav-container">
         <div className="logo">
           <Link to="/">Shopify</Link>
@@ -38,8 +41,11 @@ const Navbar = () => {
           <button className="right-side-icon light-black">
             <IoCartOutline />
           </button>
-          <button className="right-side-icon">
-            <FiMoon />
+          <button
+            className="right-side-icon theme-btn"
+            onClick={() => setIsDark(!isDark)}
+          >
+            {isDark ? <IoSunnyOutline /> : <FiMoon />}
           </button>
         </div>
       </div>
