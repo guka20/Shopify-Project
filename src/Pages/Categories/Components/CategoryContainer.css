@@ -4,9 +4,15 @@
   padding: 10px 20px;
   line-height: 35px;
 }
+.category-container.dark {
+  background-color: rgb(71, 85, 105);
+}
 .category-container .title {
   font-size: 1.2rem;
   margin: 0;
+}
+.category-container.dark .title {
+  color: white;
 }
 .category-container .link {
   text-decoration: none;

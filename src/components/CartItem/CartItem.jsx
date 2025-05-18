@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import "./CartItem.css";
 import { IoCartOutline } from "react-icons/io5";
+import { ThemeContext } from "@/contexts/ThemeContext";
 
 const CartItem = ({
   id,
@@ -9,9 +11,11 @@ const CartItem = ({
   price,
   discountPercentage,
 }) => {
+  const { isDark } = useContext(ThemeContext);
   const newPrice = (price - (price * discountPercentage) / 100).toFixed(2);
+
   return (
-    <div className="cart-item">
+    <div className={isDark ? "cart-item dark" : "cart-item"}>
       <div className="image-place">
         <img src={thumbnail} />
       </div>

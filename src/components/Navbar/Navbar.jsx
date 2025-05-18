@@ -8,9 +8,11 @@ import { IoSunnyOutline } from "react-icons/io5";
 
 import "./Navbar.css";
 import { ThemeContext } from "@/contexts/ThemeContext";
+import { IsAuthModalOpenContext } from "@/contexts/AuthModalContext";
 
 const Navbar = () => {
   const { isDark, setIsDark } = useContext(ThemeContext);
+  const { setIsAuthModalOpen } = useContext(IsAuthModalOpenContext);
   return (
     <nav className={isDark ? "nav-bar dark" : "nav-bar"}>
       <div className="nav-container">
@@ -34,7 +36,10 @@ const Navbar = () => {
               Categories
             </Link>
           </div>
-          <button className="login-btn light-black">
+          <button
+            className="login-btn light-black"
+            onClick={() => setIsAuthModalOpen(true)}
+          >
             <FaUser />
             <span className="text">Login</span>
           </button>

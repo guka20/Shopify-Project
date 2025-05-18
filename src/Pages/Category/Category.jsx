@@ -1,12 +1,13 @@
 import ProductsLayout from "@/Layouts/ProductsLayout/ProductsLayout";
 import { getCategoryProducts } from "@/helper/api";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartItem } from "@/components";
 import "./Category.css";
+import { ThemeContext } from "@/contexts/ThemeContext";
 const Category = () => {
   const { category_id } = useParams();
-
+  const { isDark } = useContext(ThemeContext);
   const [categoryProducts, setCategoryProducts] = useState();
   useEffect(() => {
     getCategoryProducts(category_id).then((resp) =>
@@ -15,7 +16,7 @@ const Category = () => {
   }, []);
   return (
     <div className="category-page">
-      <p>
+      <p className={isDark ? "dark-title" : ""}>
         Category &#10095; <b>{category_id}</b>
       </p>
       <ProductsLayout>

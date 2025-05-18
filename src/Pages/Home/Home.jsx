@@ -8,7 +8,6 @@ const Home = () => {
     <div className="home-page">
       <TrendingProducts />
       <br />
-      <hr />
       <br />
       <NewProducts />
     </div>

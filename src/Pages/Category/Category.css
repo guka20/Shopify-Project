@@ -3,3 +3,7 @@
   max-width: 1500px;
   margin: 0 auto;
 }
+
+.category-page .dark-title {
+  color: white;
+}

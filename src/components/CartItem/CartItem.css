@@ -5,10 +5,15 @@
   border: 1px solid rgba(0, 0, 0, var(--border-alpha));
   width: max-content;
 }
-
+.cart-item.dark {
+  border-color: white;
+}
 .cart-item .image-place {
   width: 350px;
   border-bottom: 1px solid rgba(0, 0, 0, var(--border-alpha));
+}
+.cart-item.dark .image-place {
+  border-bottom-color: white;
 }
 .cart-item .image-place img {
   width: 100%;
@@ -30,12 +35,17 @@
 .cart-item .textures .category {
   color: rgba(0, 0, 0, 0.6);
 }
-
+.cart-item.dark .textures .category {
+  color: white;
+}
 .cart-item .textures .title {
   color: black;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
+}
+.cart-item.dark .textures .title {
+  color: white;
 }
 .cart-item .textures .title:hover {
   text-decoration: underline;
@@ -54,7 +64,9 @@
   color: rgba(0, 0, 0, 0.6);
   text-decoration: line-through;
 }
-
+.cart-item.dark .textures .price-and-cart .old-price {
+  color: rgba(255, 255, 255, 0.6);
+}
 .cart-item .textures .price-and-cart .percentage {
   font-weight: bold;
   margin-left: 10px;
