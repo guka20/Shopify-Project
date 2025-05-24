@@ -17,10 +17,30 @@ async function getCategoriesList() {
   return data;
 }
 
-async function getCategoryProducts( category_id ) {
+async function getCategoryProducts(category_id) {
   const resp = await axios.get(`products/category/${category_id}`);
   const { data } = resp;
   return data;
 }
 
-export { getAllProducts, getCategoriesList, getCategoryProducts };
+async function getToken(userDetails) {
+  const resp = await axios.post("user/login", userDetails);
+  return resp.data;
+}
+
+async function loginUsingToken(token) {
+  const resp = await axios.get("user/me", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return resp.data;
+}
+
+export {
+  getAllProducts,
+  getCategoriesList,
+  getCategoryProducts,
+  getToken,
+  loginUsingToken,
+};
