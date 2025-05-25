@@ -14,11 +14,15 @@ const Category = () => {
       setCategoryProducts(resp.products)
     );
   }, []);
+
   return (
     <div className="category-page">
       <p className={isDark ? "dark-title" : ""}>
         Category &#10095; <b>{category_id}</b>
       </p>
+      {categoryProducts?.length === 0 ? (
+        <h2>There are no products on this category</h2>
+      ) : null}
       <ProductsLayout>
         {categoryProducts === undefined ? (
           <h1>Loading...</h1>

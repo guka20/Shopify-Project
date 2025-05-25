@@ -6,24 +6,28 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { IoIosClose } from "react-icons/io";
 import { IsAuthModalOpenContext } from "@/contexts/AuthModalContext";
 import { getToken, loginUsingToken } from "@/helper/api";
+import { ErrorContext } from "@/contexts/ErrorContext";
 
 const AuthModal = () => {
   const { setIsAuthModalOpen } = useContext(IsAuthModalOpenContext);
+  const { setError } = useContext(ErrorContext);
   const [userDetails, setUserDetails] = useState({
     username: "",
     password: "",
   });
   const [authUser, setAuthUser] = useState(null);
 
-  useEffect(() => {
-    console.log(authUser);
-  }, [authUser]);
   const getTokenFunction = () => {
     getToken(userDetails).then((resp) => {
-      localStorage.setItem("accToken", resp?.accessToken);
-      loginUsingToken(resp?.accessToken).then((resp) => setAuthUser(resp));
+      if (typeof resp === "object") {
+        localStorage.setItem("accToken", resp?.accessToken);
+        loginUsingToken(resp?.accessToken).then((resp) => setAuthUser(resp));
+      } else if (typeof resp === "string") {
+        setError(resp);
+      }
     });
   };
+
   return (
     <div className="dark-background-screen">
       <div className="modal-container">

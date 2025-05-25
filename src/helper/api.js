@@ -24,8 +24,12 @@ async function getCategoryProducts(category_id) {
 }
 
 async function getToken(userDetails) {
-  const resp = await axios.post("user/login", userDetails);
-  return resp.data;
+  try {
+    const resp = await axios.post("user/login", userDetails);
+    return resp.data;
+  } catch (err) {
+    return err.message;
+  }
 }
 
 async function loginUsingToken(token) {
