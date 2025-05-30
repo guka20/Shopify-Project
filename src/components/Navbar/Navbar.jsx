@@ -9,10 +9,17 @@ import { IoSunnyOutline } from "react-icons/io5";
 import "./Navbar.css";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { IsAuthModalOpenContext } from "@/contexts/AuthModalContext";
+import { AuthContext } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const { isDark, setIsDark } = useContext(ThemeContext);
   const { setIsAuthModalOpen } = useContext(IsAuthModalOpenContext);
+  const { userAuth, setUserAuth } = useContext(AuthContext);
+  const logoutFunction = () => {
+    setUserAuth(null);
+    localStorage.removeItem("accToken");
+  };
+
   return (
     <nav className={isDark ? "nav-bar dark" : "nav-bar"}>
       <div className="nav-container">
@@ -36,13 +43,19 @@ const Navbar = () => {
               Categories
             </Link>
           </div>
-          <button
-            className="login-btn light-black"
-            onClick={() => setIsAuthModalOpen(true)}
-          >
-            <FaUser />
-            <span className="text">Login</span>
-          </button>
+          {userAuth == null ? (
+            <button
+              className="login-btn light-black"
+              onClick={() => setIsAuthModalOpen(true)}
+            >
+              <FaUser />
+              <span className="text">Login</span>
+            </button>
+          ) : (
+            <button className="login-btn light-black" onClick={logoutFunction}>
+              Log out
+            </button>
+          )}
           <button className="right-side-icon light-black">
             <IoCartOutline />
           </button>

@@ -7,6 +7,7 @@ import { IoIosClose } from "react-icons/io";
 import { IsAuthModalOpenContext } from "@/contexts/AuthModalContext";
 import { getToken, loginUsingToken } from "@/helper/api";
 import { ErrorContext } from "@/contexts/ErrorContext";
+import { AuthContext } from "@/contexts/AuthContext";
 
 const AuthModal = () => {
   const { setIsAuthModalOpen } = useContext(IsAuthModalOpenContext);
@@ -15,13 +16,19 @@ const AuthModal = () => {
     username: "",
     password: "",
   });
-  const [authUser, setAuthUser] = useState(null);
-
+  const { setUserAuth } = useContext(AuthContext);
+  const login = (resp) => {
+    loginUsingToken(resp?.accessToken)
+      .then((resp) => setUserAuth(resp))
+      .finally(() => {
+        setIsAuthModalOpen(false);
+      });
+  };
   const getTokenFunction = () => {
     getToken(userDetails).then((resp) => {
       if (typeof resp === "object") {
         localStorage.setItem("accToken", resp?.accessToken);
-        loginUsingToken(resp?.accessToken).then((resp) => setAuthUser(resp));
+        login(resp);
       } else if (typeof resp === "string") {
         setError(resp);
       }
