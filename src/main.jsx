@@ -10,13 +10,13 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router basename="/">
       <ThemeContextProvider>
-        <AuthModalContextProvider>
-          <ErrorContextProvider>
-            <AuthContextProvider>
+        <ErrorContextProvider>
+          <AuthContextProvider>
+            <AuthModalContextProvider>
               <App />
-            </AuthContextProvider>
-          </ErrorContextProvider>
-        </AuthModalContextProvider>
+            </AuthModalContextProvider>
+          </AuthContextProvider>
+        </ErrorContextProvider>
       </ThemeContextProvider>
     </Router>
   </StrictMode>

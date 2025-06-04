@@ -38,13 +38,15 @@
 .cart-item.dark .textures .category {
   color: white;
 }
-.cart-item .textures .title {
+
+.cart-item .textures .title a {
   color: black;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
 }
-.cart-item.dark .textures .title {
+.cart-item.dark .textures .title a {
   color: white;
 }
 .cart-item .textures .title:hover {

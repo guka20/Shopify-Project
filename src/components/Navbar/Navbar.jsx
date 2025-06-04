@@ -15,6 +15,11 @@ const Navbar = () => {
   const { isDark, setIsDark } = useContext(ThemeContext);
   const { setIsAuthModalOpen } = useContext(IsAuthModalOpenContext);
   const { userAuth, setUserAuth } = useContext(AuthContext);
+  const openCartFunction = () => {
+    if (userAuth === null) {
+      setIsAuthModalOpen(true);
+    }
+  };
   const logoutFunction = () => {
     setUserAuth(null);
     localStorage.removeItem("accToken");
@@ -56,7 +61,10 @@ const Navbar = () => {
               Log out
             </button>
           )}
-          <button className="right-side-icon light-black">
+          <button
+            className="right-side-icon light-black"
+            onClick={openCartFunction}
+          >
             <IoCartOutline />
           </button>
           <button
