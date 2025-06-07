@@ -23,6 +23,12 @@ async function getCategoryProducts(category_id) {
   return data;
 }
 
+async function getSingleProduct(product_id) {
+  const resp = await axios.get(`products/${product_id}`);
+  const { data } = resp;
+  return data;
+}
+
 async function getToken(userDetails) {
   try {
     const resp = await axios.post("user/login", userDetails);
@@ -47,4 +53,5 @@ export {
   getCategoryProducts,
   getToken,
   loginUsingToken,
+  getSingleProduct,
 };
